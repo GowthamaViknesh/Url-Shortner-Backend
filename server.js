@@ -7,12 +7,13 @@ const app = express();
 const cors = require('cors');
 const link = 'mongodb+srv://URL:url@cluster1.ljnknfu.mongodb.net/';
 const ShortUrl = require('./models/urlmodel');
+const port = "https://url-dzu5.onrender.com"
 
 app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 
-app.listen(4000, () => console.log('🌏 on port 4000...'));
+app.listen(port, () => console.log('Running 🌏 on port ...'));
 
 app.get('/', async (req, res) => {
   res.send({ res: 'server is started' });
@@ -32,7 +33,7 @@ app.post('/shorturl', async (req, res) => {
       longURL: url,
     });
     await newURL.save();
-    res.json({ shortURL: `http://localhost:4000/${newURL.shortCode}` });
+    res.json({ shortURL: `https://url-dzu5.onrender.com/${newURL.shortCode}` });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Internal server error' });
