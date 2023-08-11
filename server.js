@@ -7,13 +7,12 @@ const app = express();
 const cors = require('cors');
 const link = 'mongodb+srv://URL:url@cluster1.ljnknfu.mongodb.net/';
 const ShortUrl = require('./models/urlmodel');
-const port = "https://url-dzu5.onrender.com"
 
 app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 
-app.listen(port, () => console.log('Running 🌏 on port ...'));
+app.listen(4000, () => console.log('Running 🌏 on port 4000...'));
 
 app.get('/', async (req, res) => {
   res.send({ res: 'server is started' });
